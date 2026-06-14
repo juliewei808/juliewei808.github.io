@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>照見好運 · 東方智慧 × 自我探索</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF3E7;
+    --paper2:#FFFBF3;
+    --card:#FFFDF8;
+    --ink:#3B2A2C;
+    --ink-soft:#6E564F;
+    --mu:#8A6F66;
+    --mu2:#B49C8E;
+    --gold:#C08A2E;
+    --gold-bright:#DBA64C;
+    --gold-deep:#9A6A20;
+    --terra:#C9684C;
+    --terra-deep:#A84F35;
+    --plum:#8A4E6B;
+    --line:rgba(192,138,46,.32);
+    --line-soft:rgba(138,78,107,.14);
+    --mu-wood:#4E9A6E;
+    --mu-fire:#D15A44;
+    --mu-earth:#D49A3C;
+    --mu-metal:#B8A079;
+    --mu-water:#4E73A0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1100px 640px at 50% -10%, rgba(219,166,76,.20), transparent 62%),
+      radial-gradient(840px 520px at 86% 14%, rgba(201,104,76,.13), transparent 56%),
+      radial-gradient(720px 520px at 10% 30%, rgba(138,78,107,.07), transparent 60%),
+      var(--paper);
+    min-height:100vh;line-height:1.7;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+  /* ── Hero ── */
+  .hero{text-align:center;padding:72px 0 48px;position:relative}
+  .emblem{width:130px;height:130px;margin:0 auto 26px;opacity:0;animation:fade 1s .1s ease forwards;
+    filter:drop-shadow(0 6px 16px rgba(192,138,46,.22))}
+  @media(prefers-reduced-motion:no-preference){
+    .emblem .spin{transform-origin:100px 100px;animation:rot 60s linear infinite}
+  }
+  @keyframes rot{to{transform:rotate(360deg)}}
+  .eyebrow{
+    font-size:13px;letter-spacing:.4em;color:var(--gold-deep);font-weight:500;
+    margin-bottom:18px;opacity:0;animation:fade 1s .25s ease forwards;padding-left:.4em;
+  }
+  .brand{
+    font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(46px,11vw,82px);
+    letter-spacing:.16em;line-height:1.05;padding-left:.16em;
+    background:linear-gradient(150deg,var(--plum) 0%,#A85A6E 26%,var(--terra) 58%,var(--gold-deep) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    opacity:0;animation:fade 1.1s .4s ease forwards;
+  }
+  .tagline{
+    font-family:"Noto Serif TC",serif;font-weight:500;font-size:clamp(15px,3vw,18px);
+    color:var(--ink);margin-top:20px;letter-spacing:.08em;
+    opacity:0;animation:fade 1.1s .6s ease forwards;
+  }
+  .lede{
+    color:var(--ink-soft);font-size:15px;max-width:30em;margin:16px auto 0;font-weight:400;
+    opacity:0;animation:fade 1.1s .75s ease forwards;
+  }
+  .rule{
+    width:64px;height:1px;margin:38px auto 0;
+    background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);
+    opacity:0;animation:fade 1.1s .9s ease forwards;
+  }
+
+  /* ── Cards ── */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:42px 0 24px}
+  .card{
+    --accent:var(--gold);--accent-soft:rgba(192,138,46,.13);--accent-hov:rgba(192,138,46,.6);
+    background:linear-gradient(180deg,var(--card),var(--paper2));
+    border:1px solid var(--line);border-radius:20px;padding:30px 28px 28px;
+    position:relative;overflow:hidden;
+    box-shadow:0 14px 32px -22px rgba(90,50,40,.4);
+    opacity:0;animation:rise 1s ease forwards;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s;
+  }
+  .card.color{--accent:var(--terra);--accent-soft:rgba(201,104,76,.14);--accent-hov:rgba(201,104,76,.6)}
+  .card:nth-child(1){animation-delay:1s}
+  .card:nth-child(2){animation-delay:1.15s}
+  .card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.55}
+  .card::before{
+    content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;
+    background:radial-gradient(420px 200px at 50% -30%, var(--accent-soft), transparent 70%);
+    opacity:0;transition:opacity .35s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--accent-hov);box-shadow:0 28px 52px -26px rgba(90,50,40,.5)}
+  .card:hover::before{opacity:1}
+  .card-eyebrow{font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:16px}
+  .motif{height:46px;display:flex;align-items:center;gap:7px;margin-bottom:16px}
+  .swatch{width:26px;height:26px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+  .card h3{
+    font-family:"Noto Serif TC",serif;font-weight:700;font-size:23px;letter-spacing:.04em;
+    color:var(--ink);margin-bottom:10px;
+  }
+  .card p{color:var(--mu);font-size:14.5px;font-weight:400;min-height:66px}
+  .cta{
+    display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+    font-family:inherit;font-size:14.5px;font-weight:700;letter-spacing:.05em;
+    color:#fff;background:linear-gradient(155deg,var(--terra),var(--terra-deep));
+    padding:11px 22px;border-radius:99px;text-decoration:none;
+    transition:transform .2s,box-shadow .25s;box-shadow:0 8px 18px -8px rgba(168,79,53,.5);
+  }
+  .cta:hover{transform:translateX(3px);box-shadow:0 11px 24px -8px rgba(168,79,53,.65)}
+  .cta .arr{transition:transform .2s}
+  .cta:hover .arr{transform:translateX(3px)}
+
+  /* ── About strip ── */
+  .about{
+    text-align:center;max-width:36em;margin:30px auto 0;color:var(--mu);
+    font-size:14.5px;font-weight:400;letter-spacing:.03em;
+  }
+  .about b{color:var(--ink);font-weight:700}
+
+  /* ── Footer ── */
+  footer{
+    text-align:center;padding:56px 0 46px;color:var(--mu2);font-size:12.5px;letter-spacing:.08em;
+    margin-top:30px;border-top:1px solid var(--line-soft);
+  }
+  footer .fbrand{font-family:"Noto Serif TC",serif;color:var(--gold-deep);letter-spacing:.2em;font-size:14px}
+
+  @keyframes fade{to{opacity:1}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  @media(max-width:620px){
+    .hero{padding:54px 0 34px}
+    .cards{grid-template-columns:1fr;gap:16px}
+    .card p{min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <!-- 五行 emblem: 相生(外環) + 相剋(內星) -->
+    <svg class="emblem" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <g class="spin">
+        <circle cx="100" cy="100" r="86" stroke="rgba(192,138,46,.30)" stroke-width="1"/>
+        <polygon points="100,30 166.6,78.4 141.1,156.6 58.9,156.6 33.4,78.4"
+                 stroke="rgba(192,138,46,.6)" stroke-width="1.1" fill="none"/>
+        <polygon points="100,30 141.1,156.6 33.4,78.4 166.6,78.4 58.9,156.6"
+                 stroke="rgba(192,138,46,.24)" stroke-width="1" fill="none"/>
+        <g>
+          <circle cx="100" cy="30" r="9" fill="var(--mu-wood)"/>
+          <circle cx="166.6" cy="78.4" r="9" fill="var(--mu-fire)"/>
+          <circle cx="141.1" cy="156.6" r="9" fill="var(--mu-earth)"/>
+          <circle cx="58.9" cy="156.6" r="9" fill="var(--mu-metal)"/>
+          <circle cx="33.4" cy="78.4" r="9" fill="var(--mu-water)"/>
+        </g>
+      </g>
+      <circle cx="100" cy="100" r="3.6" fill="var(--gold-bright)"/>
+    </svg>
+
+    <div class="eyebrow">東方智慧 ✦ 自我探索</div>
+    <h1 class="brand">照見好運</h1>
+    <p class="tagline">像一個懂你的朋友，照見你的好運。</p>
+    <p class="lede">兩個小工具，都從你的出生日期出發——一個解讀你的性格原型與天賦方向，一個調出屬於你的能量色彩。</p>
+    <div class="rule"></div>
+  </section>
+
+  <section class="cards">
+    <article class="card talent">
+      <div class="card-eyebrow">工具・其一　性格・天賦・職涯</div>
+      <div class="motif">
+        <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
+          <circle cx="23" cy="23" r="20" stroke="rgba(192,138,46,.6)" stroke-width="1.2"/>
+          <circle cx="23" cy="23" r="11" stroke="rgba(192,138,46,.35)" stroke-width="1"/>
+          <g stroke="rgba(192,138,46,.48)" stroke-width="1">
+            <line x1="23" y1="3" x2="23" y2="43"/>
+            <line x1="3" y1="23" x2="43" y2="23"/>
+            <line x1="8.8" y1="8.8" x2="37.2" y2="37.2"/>
+            <line x1="37.2" y1="8.8" x2="8.8" y2="37.2"/>
+          </g>
+          <circle cx="23" cy="23" r="3" fill="var(--gold)"/>
+        </svg>
+      </div>
+      <h3>東方原型天賦分析</h3>
+      <p>從出生日期推算八字命盤，解析五行與十神原型，讀出你的性格、天賦潛能，與適合的職涯、選系方向。</p>
+      <a class="cta" href="https://juliewei808.github.io/bazi-analysis/bazi_homepage_2_2.html">開始分析 <span class="arr">→</span></a>
+    </article>
+
+    <article class="card color">
+      <div class="card-eyebrow">工具・其二　五行・幸運色</div>
+      <div class="motif">
+        <span class="swatch" style="background:var(--mu-wood)"></span>
+        <span class="swatch" style="background:var(--mu-fire)"></span>
+        <span class="swatch" style="background:var(--mu-earth)"></span>
+        <span class="swatch" style="background:var(--mu-metal)"></span>
+        <span class="swatch" style="background:var(--mu-water)"></span>
+      </div>
+      <h3>好運色彩研究室</h3>
+      <p>輸入生日算出你的五行屬性，再選一個最想補的運——財運、事業、考試或整體，就能得到今天就能用的幸運色與小物。</p>
+      <a class="cta" href="https://juliewei808.github.io/lucky-color-lab/">探索我的色彩 <span class="arr">→</span></a>
+    </article>
+  </section>
+
+  <p class="about">
+    用東方的智慧，更懂自己一點。<b>你本來的樣子，就是最好的樣子。</b>
+  </p>
+
+  <footer>
+    <div class="fbrand">照見好運</div>
+    <div style="margin-top:8px">東方智慧 × 自我探索 · 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
